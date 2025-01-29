@@ -21,7 +21,6 @@
 	async function logout() {
 		await appwrite.account.deleteSession('current');
 		await invalidateAll();
-	}
 
 </script>
 
