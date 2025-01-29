@@ -23,8 +23,6 @@
 		await invalidateAll();
 	}
 
-	
-
 </script>
 
 
