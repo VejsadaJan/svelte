@@ -13,6 +13,11 @@
 	export let data;
 
 	console.log (data);
+	console.log (databases);
+	
+	
+	
+
 
 	$: loggedIn = !!data.account;
 	
