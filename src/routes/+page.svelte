@@ -1,8 +1,11 @@
 
 <!-- src/routes/+page.svelte -->
 
+
+
 <script>
 
+	
 
 	import { invalidateAll } from '$app/navigation';
 	import { appwrite } from '$lib/appwrite.js';
@@ -11,17 +14,20 @@
 	import { Client, Databases, Query, ID } from "appwrite";
 
 	export let data;
+	
 
 	console.log (data);
-	console.log (databases);
+
 	
 	
 	
 
 
 	$: loggedIn = !!data.account;
+
+	console.log ('mail uživatele je ' + data.account?.email);
+	console.log ('id uživatele je ' + data.account?.$id);
 	
-	//$: loggedIn = !!data.databases;
 
 	async function logout() {
 		await appwrite.account.deleteSession('current');
@@ -66,21 +72,27 @@
 {#if loggedIn}
 	
 	<p>Ahoj {data.account?.name}</p>
-	<p>Tvůj e-mail je {data.account?.email} </p>
+	<!-- <p>Tvůj e-mail je {data.account?.email} </p> -->
 	<!-- <p>ID účtu : {data.account?.$id}</p> -->
 	
+
+
+
+
+
 	<button on:click={logout}>Odhásit</button>
 
 	<!-- tady bude kod po přihlášení  -->
 
-	
-	
 	<script>
 
-	//	console.log (data);
 		
-
-	</script>	
+		//	console.log (data);
+			
+	
+	</script>
+	
+		
 
 
 
